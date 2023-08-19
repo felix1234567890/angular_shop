@@ -24,7 +24,7 @@ export class CartContainerComponent implements OnDestroy {
   clearCart() {
     this.store.dispatch(new EmptyCart());
   }
-  trackByFn(item) {
+  trackByFn(item: CartItem) {
     return item.id;
   }
 }

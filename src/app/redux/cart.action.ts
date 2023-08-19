@@ -7,7 +7,7 @@ export enum CartActionTypes {
   getTotalAndAmount = 'Get total and amount',
 }
 export class ActionEx implements Action {
-  readonly type;
+  readonly type: CartActionTypes;
   payload?: any;
 }
 export class EmptyCart implements ActionEx {

@@ -1,10 +1,6 @@
-import { Component, OnInit, OnDestroy, ɵConsole } from '@angular/core';
-import { Apollo } from 'apollo-angular';
-import gql from 'graphql-tag';
+import { Component, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { CartItem } from './models/CartItem';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 import { Store, select } from '@ngrx/store';
 import { IStore } from './redux/cart.reducer';
 import { GetTotalAndAmount } from './redux/cart.action';
@@ -18,7 +14,7 @@ export class AppComponent implements OnDestroy {
   cart: CartItem[];
   cartSubscription: Subscription;
 
-  constructor(private store: Store<{ cart: IStore }>) {
+  constructor(store: Store<{ cart: IStore }>) {
     this.cartSubscription = store
       .pipe(select('cart'))
       .subscribe((values) => (this.cart = values.cartItems));
