@@ -1,29 +1,28 @@
-<div *ngIf="cart.length === 0; else cartBlock">
-  <section class="cart">
-    <header>
-      <h2>your bag</h2>
-      <h4 class="empty-cart">is currently empty</h4>
-    </header>
-  </section>
-</div>
-<ng-template #cartBlock>
-  <section class="cart">
-    <header>
-      <h2>your bag</h2>
-    </header>
-
-    <article *ngFor="let cartItem of cart; trackBy: trackByFn">
-      <app-cart-item [cartItem]="cartItem"></app-cart-item>
-    </article>
-
-    <footer>
-      <hr />
-      <div class="cart-total">
-        <h4>
-          total <span>{{ total | currency }}</span>
-        </h4>
-      </div>
-      <button class="btn clear-btn" (click)="clearCart()">clear cart</button>
-    </footer>
-  </section>
-</ng-template>
+@if(cart.length) {
+<section class="cart">
+  <header>
+    <h2>your bag</h2>
+  </header>
+  @for(cartItem of cart; track trackByFn) {
+  <article>
+    <app-cart-item [cartItem]="cartItem"></app-cart-item>
+  </article>
+  }
+  <footer>
+    <hr />
+    <div class="cart-total">
+      <h4>
+        total <span>{{ total | currency }}</span>
+      </h4>
+    </div>
+    <button class="btn clear-btn" (click)="clearCart()">clear cart</button>
+  </footer>
+</section>
+} @else {
+<section class="cart">
+  <header>
+    <h2>your bag</h2>
+    <h4 class="empty-cart">is currently empty</h4>
+  </header>
+</section>
+}

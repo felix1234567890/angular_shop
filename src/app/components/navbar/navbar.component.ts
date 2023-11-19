@@ -11,8 +11,8 @@ export class NavbarComponent implements OnDestroy {
   amount: number;
   cartSubscription: Subscription;
 
-  constructor(private store: Store<{ cart: IStore }>) {
-    this.cartSubscription = store
+  constructor(private readonly store: Store<{ cart: IStore }>) {
+    this.cartSubscription = this.store
       .pipe(select(totalAndAmountObject))
       .subscribe((value) => (this.amount = value.amount));
   }

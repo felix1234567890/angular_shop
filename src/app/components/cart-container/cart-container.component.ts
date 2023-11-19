@@ -10,7 +10,7 @@ import { EmptyCart } from 'src/app/redux/cart.action';
   templateUrl: './cart-container.component.html',
 })
 export class CartContainerComponent implements OnDestroy {
-  @Input() cart: CartItem[];
+  @Input({required:true}) cart: CartItem[];
   total: number;
   cartSubscription: Subscription;
   constructor(private store: Store<{ cart: IStore }>) {
