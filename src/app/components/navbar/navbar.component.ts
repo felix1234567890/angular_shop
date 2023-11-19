@@ -1,22 +1,18 @@
-import { Component, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, WritableSignal, signal } from '@angular/core';
 import { Store, select } from '@ngrx/store';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { IStore, totalAndAmountObject } from 'src/app/redux/cart.reducer';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
 })
-export class NavbarComponent implements OnDestroy {
-  amount: number;
-  cartSubscription: Subscription;
+export class NavbarComponent {
+  amount: WritableSignal<number> = signal(0);
 
   constructor(private readonly store: Store<{ cart: IStore }>) {
-    this.cartSubscription = this.store
-      .pipe(select(totalAndAmountObject))
-      .subscribe((value) => (this.amount = value.amount));
-  }
-  ngOnDestroy() {
-    this.cartSubscription.unsubscribe();
+   this.store
+      .pipe(takeUntilDestroyed(), select(totalAndAmountObject))
+      .subscribe((value) => this.amount.set(value.amount));
   }
 }
