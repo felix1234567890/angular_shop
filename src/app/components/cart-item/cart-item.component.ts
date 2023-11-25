@@ -11,6 +11,7 @@ import {
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
+  standalone:true
 })
 export class CartItemComponent {
   @Input() cartItem: CartItem;

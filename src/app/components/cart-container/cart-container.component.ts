@@ -9,10 +9,14 @@ import { Store, select } from '@ngrx/store';
 import { IStore, totalAndAmountObject } from 'src/app/redux/cart.reducer';
 import { EmptyCart } from 'src/app/redux/cart.action';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { CurrencyPipe } from '@angular/common';
+import { CartItemComponent } from '../cart-item/cart-item.component';
 
 @Component({
   selector: 'app-cart-container',
+  standalone:true,
   templateUrl: './cart-container.component.html',
+  imports:[CurrencyPipe, CartItemComponent]
 })
 export class CartContainerComponent {
   @Input({ required: true }) cart: CartItem[];

@@ -6,6 +6,7 @@ import { IStore, totalAndAmountObject } from 'src/app/redux/cart.reducer';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
+  standalone:true
 })
 export class NavbarComponent {
   amount: WritableSignal<number> = signal(0);
