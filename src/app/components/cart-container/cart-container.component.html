@@ -2,7 +2,7 @@
   <header>
     <h2>your bag</h2>
   </header>
-  @for(cartItem of cart; track trackByFn) {
+  @for(cartItem of cartStore.cartItems(); track trackByFn) {
   <article>
     <app-cart-item [cartItem]="cartItem"></app-cart-item>
   </article>
@@ -13,10 +13,14 @@
     <hr />
     <div class="cart-total">
       <h4>
-        total <span>{{ total() | currency }}</span>
+        total
+        <span>{{ cartStore.totalAndAmountObject().total | currency }}</span>
       </h4>
     </div>
-    @if(cart.length){<button class="btn clear-btn" (click)="clearCart()">
+    @if(cartStore.cartItems().length){<button
+      class="btn clear-btn"
+      (click)="clearCart()"
+    >
       clear cart</button
     >}
   </footer>
