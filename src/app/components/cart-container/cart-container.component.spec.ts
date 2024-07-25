@@ -2,7 +2,7 @@ import { CurrencyPipe } from "@angular/common";
 import { signal } from "@angular/core";
 import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
 import { By } from "@angular/platform-browser";
-import { CartStore } from "src/app/redux/cart.reducer";
+import { CartStore, ICartStore } from "src/app/redux/cart.reducer";
 import { CartContainerComponent } from "./cart-container.component";
 class MockCartStore {
  cartItems = signal([])
@@ -11,8 +11,8 @@ class MockCartStore {
 }
 describe('CardContainerComponent', () => {
     let component: CartContainerComponent;
-    let service;
-    let datePipe
+    let service: ICartStore
+    let currencyPipe:CurrencyPipe
     let fixture: ComponentFixture<CartContainerComponent>;
     beforeEach(waitForAsync(() => {
       TestBed.configureTestingModule({imports: [CartContainerComponent], providers:[{provide: CartStore, useClass: MockCartStore}, CurrencyPipe]}).compileComponents();
@@ -21,7 +21,7 @@ describe('CardContainerComponent', () => {
       fixture = TestBed.createComponent(CartContainerComponent);
       component = fixture.componentInstance;
       service = TestBed.inject(CartStore);
-      datePipe = TestBed.inject(CurrencyPipe)
+      currencyPipe = TestBed.inject(CurrencyPipe)
       fixture.detectChanges();
     });
     it('should create', () => {
@@ -33,6 +33,6 @@ describe('CardContainerComponent', () => {
     })
     it('should have amount 0', () => {
       const total = fixture.debugElement.query(By.css(".cart-total span")).nativeElement
-      expect(total.textContent).toEqual(datePipe.transform(0))
+      expect(total.textContent).toEqual(currencyPipe.transform(0))
     })
   });

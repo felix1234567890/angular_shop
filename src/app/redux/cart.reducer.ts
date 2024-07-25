@@ -12,7 +12,7 @@ import { CartItem } from '../models/CartItem.js';
 export interface IStore {
   cartItems: CartItem[];
 }
-
+export type ICartStore = InstanceType<typeof CartStore>
 export const CartStore = signalStore(
   withState({ cartItems: data }),
   withComputed(({ cartItems }) => {

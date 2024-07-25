@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { CartStore } from './cart.reducer';
+import { CartStore, ICartStore } from './cart.reducer';
 
 describe('CartStore', () => {
-  let store;
+  let store: ICartStore;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CartStore]
+      providers: [CartStore],
     });
     store = TestBed.inject(CartStore);
   });
@@ -37,25 +37,25 @@ describe('CartStore', () => {
   it('should remove an item from the cart', () => {
     store.removeItem(2);
     expect(store.cartItems().length).toBe(2);
-    expect(store.cartItems().find(item => item.id === 2)).toBeUndefined();
+    expect(store.cartItems().find((item) => item.id === 2)).toBeUndefined();
   });
 
   it('should increase the amount of an item', () => {
     store.increaseAmount(1);
-    const updatedItem = store.cartItems().find(item => item.id === 1);
+    const updatedItem = store.cartItems().find((item) => item.id === 1);
     expect(updatedItem?.amount).toBe(2);
   });
 
   it('should decrease the amount of an item', () => {
     store.increaseAmount(1); // First increase to 2
     store.decreaseAmount(1, 2);
-    const updatedItem = store.cartItems().find(item => item.id === 1);
+    const updatedItem = store.cartItems().find((item) => item.id === 1);
     expect(updatedItem?.amount).toBe(1);
   });
 
   it('should remove item when decreased to 0', () => {
     store.decreaseAmount(3, 1);
     expect(store.cartItems().length).toBe(2);
-    expect(store.cartItems().find(item => item.id === 3)).toBeUndefined();
+    expect(store.cartItems().find((item) => item.id === 3)).toBeUndefined();
   });
 });
