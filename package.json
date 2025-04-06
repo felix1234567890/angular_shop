@@ -6,10 +6,11 @@
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
-    "lint": "ng lint",
+    "lint": "eslint \"src/**/*.{ts,html}\" --fix",
     "e2e": "cypress open",
     "cypress:run": "cypress run"
   },
+  "type": "module",
   "private": true,
   "dependencies": {
     "@angular/animations": "~19.2.5",
@@ -28,6 +29,11 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~19.2.5",
     "@angular-devkit/core": "^19.2.6",
+    "@angular-eslint/builder": "^19.3.0",
+    "@angular-eslint/eslint-plugin": "^19.3.0",
+    "@angular-eslint/eslint-plugin-template": "^19.3.0",
+    "@angular-eslint/schematics": "^19.3.0",
+    "@angular-eslint/template-parser": "^19.3.0",
     "@angular/cli": "~19.2.5",
     "@angular/compiler-cli": "~19.2.5",
     "@angular/language-service": "~19.2.5",
@@ -35,8 +41,11 @@
     "@types/jasmine": "~5.1.2",
     "@types/jasminewd2": "~2.0.13",
     "@types/node": "^20.9.2",
-    "codelyzer": "^6.0.2",
+    "@typescript-eslint/eslint-plugin": "^8.29.0",
+    "@typescript-eslint/parser": "^8.29.0",
     "cypress": "^14.2.1",
+    "eslint": "^9.24.0",
+    "globals": "^16.0.0",
     "jasmine-core": "~5.1.1",
     "jasmine-spec-reporter": "~7.0.0",
     "karma": "~6.4.2",
@@ -45,7 +54,6 @@
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "^2.1.0",
     "ts-node": "~10.9.1",
-    "tslint": "~6.1.0",
     "typescript": "~5.5.0"
   }
 }
