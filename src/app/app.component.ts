@@ -1,9 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { CartStore } from './redux/cart.reducer';
-import { NavbarComponent } from './components/navbar/navbar.component';
 import { CartContainerComponent } from './components/cart-container/cart-container.component';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserModule } from '@angular/platform-browser';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { CartStore } from './redux/cart.reducer';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +10,8 @@ import { BrowserModule } from '@angular/platform-browser';
   imports: [
     NavbarComponent,
     CartContainerComponent,
-    BrowserModule,
-    HttpClientModule,
   ],
-  providers:[CartStore],
+  providers: [CartStore],
 })
 export class AppComponent {
   readonly cartStore = inject(CartStore);

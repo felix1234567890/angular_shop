@@ -62,11 +62,11 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "re-shop:build"
+            "buildTarget": "re-shop:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "re-shop:build:production"
+              "buildTarget": "re-shop:build:production"
             }
           }
         },
@@ -121,6 +121,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "re-shop"
 }
