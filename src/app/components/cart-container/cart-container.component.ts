@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CartItem } from 'src/app/models/CartItem';
+import type { CartItem } from 'src/app/models/CartItem';
 import { CurrencyPipe } from '@angular/common';
 import { CartItemComponent } from '../cart-item/cart-item.component';
 import { CartStore } from 'src/app/redux/cart.reducer';

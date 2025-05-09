@@ -1,18 +1,18 @@
-import { computed } from '@angular/core';
+import { computed } from "@angular/core";
 import {
   patchState,
   signalStore,
   withComputed,
   withMethods,
   withState,
-} from '@ngrx/signals';
-import data from '../../data.json';
-import { CartItem } from '../models/CartItem.js';
+} from "@ngrx/signals";
+import data from "../../data.json";
+import type { CartItem } from "../models/CartItem.js";
 
 export interface IStore {
   cartItems: CartItem[];
 }
-export type ICartStore = InstanceType<typeof CartStore>
+export type ICartStore = InstanceType<typeof CartStore>;
 export const CartStore = signalStore(
   withState({ cartItems: data }),
   withComputed(({ cartItems }) => {
@@ -29,8 +29,8 @@ export const CartStore = signalStore(
           {
             total: 0,
             amount: 0,
-          }
-        )
+          },
+        ),
       ),
     };
   }),
@@ -70,6 +70,6 @@ export const CartStore = signalStore(
       patchState(store, {
         cartItems: crtItems,
       });
-    }
-  }))
+    },
+  })),
 );

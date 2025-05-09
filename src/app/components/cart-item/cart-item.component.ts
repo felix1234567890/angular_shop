@@ -1,5 +1,5 @@
 import { Component, Input, inject } from '@angular/core';
-import { CartItem } from 'src/app/models/CartItem';
+import type { CartItem } from 'src/app/models/CartItem';
 import { CartStore } from 'src/app/redux/cart.reducer';
 
 @Component({
@@ -8,6 +8,6 @@ import { CartStore } from 'src/app/redux/cart.reducer';
   standalone:true,
 })
 export class CartItemComponent {
-  @Input() cartItem: CartItem;
+  @Input({ required: true }) cartItem!: CartItem;
   readonly cartStore = inject(CartStore);
-  }
+}
