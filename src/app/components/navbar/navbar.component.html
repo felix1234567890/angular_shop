@@ -11,5 +11,10 @@
         <p class="total-amount">{{ amount }}</p>
       </div>
     </div>
+    <div *ngIf="user$ | async as user" class="nav-auth-item">
+      <button (click)="logout()" class="btn btn-auth btn-logout">
+        Sign Out
+      </button>
+    </div>
   </div>
 </nav>

@@ -118,6 +118,37 @@ p {
 }
 
 /*
+===============
+Auth Buttons
+===============
+*/
+.login-container {
+  text-align: center;
+  margin-top: 50px; /* Or use a variable if available */
+}
+
+.btn-auth {
+  padding: 0.5rem 1rem; /* Slightly larger padding */
+  font-size: 1rem; /* Standardized font size */
+  border-radius: var(--radius); /* Use existing radius */
+  text-transform: none; /* Override .btn's uppercase if desired, or keep it */
+}
+
+.btn-logout {
+  background-color: var(--clr-red-dark);
+  color: var(--clr-white);
+}
+
+.btn-logout:hover {
+  background-color: var(--clr-red-light);
+  color: var(--clr-red-dark);
+}
+
+.nav-auth-item {
+  margin-left: auto; /* Pushes the item to the right in a flex container */
+}
+
+/*
 =============== 
 Navbar
 ===============
