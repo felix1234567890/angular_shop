@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CartStore } from 'src/app/redux/cart.reducer';
-import { AuthService } from '../../../services/auth.service';
+import { AuthService } from '../../services/auth.service';
 import { User } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 
