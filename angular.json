@@ -126,5 +126,8 @@
       }
     }
   },
-  "defaultProject": "re-shop"
+  "defaultProject": "re-shop",
+  "cli": {
+    "analytics": false
+  }
 }
