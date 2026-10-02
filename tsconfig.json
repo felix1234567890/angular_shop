@@ -1,14 +1,16 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "paths": {
+      "src/*": ["./src/*"]
+    },
+    "rootDir": ".",
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
     "declaration": false,
-    "downlevelIteration": true,
     "experimentalDecorators": true,
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "importHelpers": true,
     "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
@@ -16,6 +18,7 @@
     "lib": ["es2018", "dom", "esnext.asynciterable"]
   },
   "angularCompilerOptions": {
+    "strictTemplates": false,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "_enabledBlockTypes": [

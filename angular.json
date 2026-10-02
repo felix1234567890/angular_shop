@@ -41,7 +41,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "extractLicenses": true,
               "vendorChunk": false,
@@ -126,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "re-shop"
+  "defaultProject": "re-shop",
+  "cli": {
+    "analytics": false
+  }
 }
